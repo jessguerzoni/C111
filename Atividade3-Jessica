@@ -1,0 +1,30 @@
+import numpy as np 
+dataset=np.loadtxt('space.csv', delimiter=';',
+  dtype='str',encoding='utf-8')  
+
+print(dataset)
+
+#1:
+
+tot=dataset.size
+print(tot)
+cont=np.char.count(dataset,'Success').sum()
+print(cont)
+porcent=(cont/tot)*100
+print(porcent)
+
+
+#2
+
+cont2=np.count_nonzero(dataset=='0')
+print(cont2)
+
+#3
+
+cont3=np.char.count(dataset,'USA').sum()
+print(cont3)
+
+#4
+masc=np.char.find(dataset,'SpaceX')>0
+filtro= dataset[np.any(masc, axis=1)]
+print(filtro)
